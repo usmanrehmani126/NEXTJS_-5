@@ -13,22 +13,6 @@
 
   </div>
 
-<h3 align="center">Startup Directory Platform</h3>
-
-   <div align="center">
-     Build this project step by step with our detailed tutorial on <a href="https://www.youtube.com/@javascriptmastery/videos" target="_blank"><b>JavaScript Mastery</b></a> YouTube. Join the JSM family!
-    </div>
-</div>
-
-
-This repository contains the code corresponding to an in-depth tutorial available on our YouTube
-channel, <a href="https://www.youtube.com/@javascriptmastery/videos" target="_blank"><b>JavaScript Mastery</b></a>.
-
-If you prefer visual learning, this is the perfect resource for you. Follow our tutorial to learn how to build projects
-like these step-by-step in a beginner-friendly manner!
-
-<a href="https://youtu.be/Zq5fmkH0T78?feature=shared" target="_blank"><img src="https://github.com/sujatagunale/EasyRead/assets/151519281/1736fca5-a031-4854-8c09-bc110e3bc16d" /></a>
-
 ## <a name="introduction">🤖 Introduction</a>
 
 A Next.js 15 platform where entrepreneurs can submit their startup ideas for virtual pitch competitions, browse other
@@ -89,8 +73,8 @@ Make sure you have the following installed on your machine:
 **Cloning the Repository**
 
 ```bash
-git clone https://github.com/JavaScript-Mastery-Pro/pitchify.git
-cd pitchify
+git clone https://github.com/usmanrehmani126/NEXTJS_-5.git
+cd NEXTJS_-5
 ```
 
 **Installation**
@@ -417,132 +401,6 @@ export default config;
 
 </details>
 
-<details>
-<summary><code>lib/utils.ts</code></summary>
-
-```typescript
-import {clsx, type ClassValue} from "clsx";
-import {twMerge} from "tailwind-merge";
-
-export function cn(...inputs: ClassValue[]) {
-    return twMerge(clsx(inputs));
-}
-
-export function parseServerActionResponse<T>(response: T) {
-    return JSON.parse(JSON.stringify(response));
-}
-
-export function formatDate(date: string) {
-    return new Date(date).toLocaleDateString("en-US", {
-        month: "long",
-        day: "numeric",
-        year: "numeric",
-    });
-}
-
-export function formatNumber(number: number) {
-    if (number >= 1000000) {
-        return (number / 1000000).toFixed(1).replace(/\.0$/, "") + "M"; // Convert to millions
-    } else if (number >= 1000) {
-        return (number / 1000).toFixed(1).replace(/\.0$/, "") + "k"; // Convert to thousands
-    } else {
-        return number.toString(); // Return the number as is if below 1000
-    }
-}
-```
-
-</details>
-
-<details>
-<summary><code>lib/validation.ts</code></summary>
-
-```typescript
-import {z} from "zod";
-
-export const formSchema = z.object({
-    title: z.string().min(3, "Title is required").max(100, "Title is too long"),
-    description: z
-        .string()
-        .min(20, "Description should be at least 20 characters")
-        .max(500, "Description is too long. Max 500 characters at most"),
-    category: z
-        .string()
-        .min(3, "Category should be at least 3 characters")
-        .max(20, "Category is too long. Max 20 characters at most"),
-    link: z
-        .string()
-        .url("Invalid Image URL")
-        .refine(async (url) => {
-            try {
-                const res = await fetch(url, {method: "HEAD"});
-                const contentType = res.headers.get("content-type");
-                return contentType?.startsWith("image/");
-            } catch {
-                return false;
-            }
-        }, "URL must be a valid image"),
-    pitch: z.string().min(10, "Pitch should be at least 10 characters"),
-});
-```
-
-</details>
-
-<details>
-  <summary><code>components/Ping.tsx</code></summary>
-
-```typescript jsx
-const Ping = () => {
-    return (
-        <div className="relative">
-            <div className="absolute -left-4 top-1">
-                <span className="flex size-[11px]">
-                    <span
-                        className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75"></span>
-                    <span className="relative inline-flex size-[11px] rounded-full bg-primary"></span>
-                </span>
-            </div>
-        </div>
-    );
-};
-
-export default Ping;
-```
-
-</details>
-
-<details>
-    <summary><code>PLAYLIST_BY_SLUG_QUERY</code></summary>
-
-```typescript
-export const PLAYLIST_BY_SLUG_QUERY =
-  defineQuery(`*[_type == "playlist" && slug.current == $slug][0]{
-  _id,
-  title,
-  slug,
-  select[]->{
-    _id,
-    _createdAt,
-    title,
-    slug,
-    author->{
-      _id,
-      name,
-      slug,
-      image,
-      bio
-    },
-    views,
-    description,
-    category,
-    image,
-    pitch
-  }
-}`);
-```
-
-</details>
-
-## <a name="links">🔗 Assets</a>
 
 - Fonts and Assets used in the project can be found [here](https://drive.google.com/file/d/1OEFHnEq5pQFP86u8FOBLBBNxKPsbjjqU/view?usp=sharing)
 - [Learn Server Actions](https://youtu.be/FKZAXFjxlJI?feature=shared)
@@ -554,6 +412,8 @@ export const PLAYLIST_BY_SLUG_QUERY =
 
 Enjoyed creating this project? Dive deeper into our PRO courses for a richer learning experience. They're packed with detailed explanations, cool features, and exercises to boost your skills. Give it a go!
 
-<a href="https://www.jsmastery.pro/ultimate-next-course" target="_blank">
+
+## <a name="more">Contact Developer</a>
+<a href="https://usmandotdev.netlify.app/" target="_blank">
 <img src="https://i.ibb.co/804sPK6/Image-720.png" alt="Project Banner">
 </a>
